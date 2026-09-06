@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{name}}</title>
+</head>
+<body>
+
+    <h1>Welcome to {{name}}</h1>
+    <p>{{message}}</p>
+    <ul>
+
+        {% for issue in issues  %}
+        <li>{{issue}}</li>
+        {% endfor %}
+        
+    </ul>
+
+</body>
+</html>
