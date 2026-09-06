@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{name}}</title>
-</head>
-<body>
+{% extends "issues/base.html" %}
 
-    <h1>Welcome to {{name}}</h1>
-    <p>{{message}}</p>
-    <ul>
+{% block title %}
+Issues
+{% endblock %}
 
-        {% for issue in issues  %}
-        <li>{{issue}}</li>
+{% block content %}
+
+    <h2>Campus Issues</h2>
+    <ol>
+
+        {% for issue in issues %}
+        <li>{{ issue }} :- {{issue.location}}</li>
         {% endfor %}
         
-    </ul>
-
-</body>
-</html>
+    </ol>
+{% endblock %}
