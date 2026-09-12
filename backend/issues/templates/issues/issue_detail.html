@@ -27,9 +27,11 @@
         {{issue.created_at}}
     </p>
     <a href="{% url 'edit-issue' issue.id %}">
-    Edit Issue 
-    </a>
-
+        Edit Issue 
+    </a><br>
+    <a href="{% url 'delete-issue' issue.id %}">
+    Delete Issue
+    </a><br>
     <a href="{% url 'issue-list' %}"> Back to Issues</a>
 
 {% endblock %}

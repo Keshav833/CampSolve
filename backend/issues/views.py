@@ -59,4 +59,17 @@ def edit_issue(request, issue_id):
         "issues/edit_issue.html",
         {"form":form ,"issue":issue}
     )
+
+def delete_issue(request, issue_id):
+    issue = get_object_or_404(Issue, id = issue_id)
+
+    if request.method == "POST":
+        issue.delete()
+        return redirect("issue-list")
+
+    return render(
+        request,
+        "issues/delete_issue.html",
+        {"issue":issue}
+    )
     
