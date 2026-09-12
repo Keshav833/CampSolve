@@ -6,12 +6,32 @@ Issues
 
 {% block content %}
 
-    <h2>Campus Issues</h2>
-    <ol>
+<h2>Campus Issues</h2>
 
-        {% for issue in issues %}
-        <li>{{ issue }} :- {{issue.location}}</li>
-        {% endfor %}
-        
-    </ol>
+<a href="{% url 'create-issue' %}">
+    Report an Issue
+</a>
+
+{% for issue in issues %}
+
+    <div>
+        <h3>
+            <a href="{% url 'issue-detail' issue.id %}">
+                {{ issue.title }}
+            </a>
+        </h3>
+
+        <p>
+            {{ issue.location }} |
+            {{ issue.get_priority_display }} |
+            {{ issue.get_status_display }}
+        </p>
+    </div>
+
+{% empty %}
+
+    <p>No issues reported yet.</p>
+
+{% endfor %}
+
 {% endblock %}
