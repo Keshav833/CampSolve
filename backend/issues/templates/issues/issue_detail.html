@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="detail-card">
     <h2>{{issue.title}}</h2>
     <p>
         <strong>Description:</strong>
@@ -26,12 +27,11 @@
         <strong>Created:</strong>
         {{issue.created_at}}
     </p>
-    <a href="{% url 'edit-issue' issue.id %}">
-        Edit Issue 
-    </a><br>
-    <a href="{% url 'delete-issue' issue.id %}">
-    Delete Issue
-    </a><br>
-    <a href="{% url 'issue-list' %}"> Back to Issues</a>
+    <div class="detail-actions">
+        <a class="button" href="{% url 'edit-issue' issue.id %}">Edit Issue</a>
+        <a class="button button-danger" href="{% url 'delete-issue' issue.id %}">Delete Issue</a>
+        <a href="{% url 'issue-list' %}">Back to Issues</a>
+    </div>
+</div>
 
 {% endblock %}

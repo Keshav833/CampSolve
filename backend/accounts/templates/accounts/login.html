@@ -6,10 +6,12 @@ Login
 
 {% block content %}
 
-<h2>Login</h2>
+<div class="page-heading">
+    <h2>Login</h2>
+</div>
 
 {% if error %}
-    <p>{{ error }}</p>
+    <p class="error">{{ error }}</p>
 {% endif %}
 
 <form method="POST">
@@ -30,9 +32,10 @@ Login
         required
     >
 
-    <button type="submit">
-        Login
-    </button>
+    <div class="form-actions">
+        <button type="submit">Login</button>
+        <a href="{% url 'register' %}">Create an account</a>
+    </div>
 
 </form>
 

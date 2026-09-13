@@ -1,7 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Campsolve{% endblock %}</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --surface: #ffffff;
+            --background: #f3f6fb;
+            --danger: #b91c1c;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background: var(--background);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem max(1rem, calc((100% - 960px) / 2));
+        }
+
+        header h1 {
+            display: inline;
+            margin: 0 1.5rem 0 0;
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+        }
+
+        nav { display: inline-flex; gap: 1rem; }
+
+        main {
+            width: min(960px, calc(100% - 2rem));
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        h2 { margin-top: 0; font-size: 1.8rem; }
+        h3 { margin: 0; }
+
+        a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        .button,
+        button {
+            display: inline-block;
+            border: 0;
+            border-radius: 6px;
+            padding: 0.65rem 1rem;
+            color: white;
+            background: var(--primary);
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .button:hover,
+        button:hover { background: var(--primary-dark); text-decoration: none; }
+        .button-danger { background: var(--danger); }
+        .button-danger:hover { background: #991b1b; }
+
+        .page-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .issue-card,
+        form,
+        .detail-card,
+        .confirmation-card {
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            background: var(--surface);
+            box-shadow: 0 2px 8px rgb(15 23 42 / 5%);
+        }
+
+        .issue-card { margin-top: 0.75rem; }
+        .issue-card { text-align: left; }
+        .issue-card p, .muted { margin: 0.35rem 0 0; color: var(--muted); }
+        form { max-width: 560px; text-align: left; }
+        .detail-card, .confirmation-card { max-width: 700px; }
+        form p { margin: 0 0 1rem; }
+
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            padding: 0.65rem;
+            color: var(--text);
+            background: white;
+            font: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary);
+            outline: 2px solid rgb(37 99 235 / 15%);
+        }
+
+        .form-actions, .detail-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.25rem;
+        }
+
+        .error {
+            border-left: 4px solid var(--danger);
+            padding: 0.7rem 1rem;
+            color: var(--danger);
+            background: #fef2f2;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { display: block; margin-bottom: 0.35rem; }
+            .page-heading { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
 </head>
 
 <body>

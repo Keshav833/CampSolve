@@ -14,9 +14,10 @@ Create Issue
 
     {{ form.as_p }}
 
-    <button type="submit">
-        Submit Issue
-    </button>
+    <div class="form-actions">
+        <button type="submit">Submit Issue</button>
+        <a href="{% url 'issue-list' %}">Cancel</a>
+    </div>
 
 </form>
 

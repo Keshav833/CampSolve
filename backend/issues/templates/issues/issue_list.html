@@ -6,15 +6,14 @@ Issues
 
 {% block content %}
 
-<h2>Campus Issues</h2>
-
-<a href="{% url 'create-issue' %}">
-    Report an Issue
-</a>
+<div class="page-heading">
+    <h2>Campus Issues</h2>
+    <a class="button" href="{% url 'create-issue' %}">Report an Issue</a>
+</div>
 
 {% for issue in issues %}
 
-    <div>
+    <div class="issue-card">
         <h3>
             <a href="{% url 'issue-detail' issue.id %}">
                 {{ issue.title }}
